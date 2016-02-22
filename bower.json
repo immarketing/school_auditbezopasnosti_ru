@@ -1,0 +1,29 @@
+{
+  "name": "school.auditbezopasnosti.ru",
+  "authors": [
+    "AVGorbunov <immarketing@yandex.ru>"
+  ],
+  "description": "School for auditbezopasnosti.ru",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "personal",
+    "site"
+  ],
+  "license": "MIT",
+  "homepage": "school.auditbezopasnosti.ru",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "bootstrap": "^3.3.6"
+  }
+}
