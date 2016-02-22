@@ -24,7 +24,7 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                     optimization: 2
                 },
                 files: {
-                    "css/cv.css": "less.src/cv.less"
+                    "css/school.css": "less.src/school.less"
                 }
             }
         },
@@ -65,8 +65,8 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %>\n'
             },
             build: {
-                src: 'js.src/cv.js',
-                dest: 'js/cv.min.js'
+                src: 'js.src/school.js',
+                dest: 'js/school.min.js'
             }
         },
         copy: {
