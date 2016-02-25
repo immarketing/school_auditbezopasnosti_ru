@@ -35,8 +35,8 @@
 
 @media screen and (max-width: 768px) {
   .col-sm-4 {
-    text-align: center;
-    margin: 25px 0;
+    //text-align: center;
+    //margin: 25px 0;
   }
 }
 
@@ -48,9 +48,54 @@ body {
   .navbar-brand {
     .schl-logo-img {
       background-image: url("../images/logo_school_round.png");
+      width: 87px;
+      height: 87px;
 
     }
   }
+
+  .cvtitle {
+    //.cvTextSpaced;
+
+    h1 {
+      text-transform: uppercase;
+      //color: #564d93;
+      display: table-cell;
+      //font: 56px PFDinDisplayProExtraThin, sans-serif;
+      padding: 0 40px;
+      white-space: nowrap;
+      //line-height: 1;
+    }
+  }
+
+  .cvtitle:before, .cvtitle:after {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAEklEQVR4XgXAgQgAAAAAoP2pjwACAAF0O1JHAAAAAElFTkSuQmCC") repeat-x scroll 0 50% rgba(255, 0, 0, 0);
+    content: "";
+    display: table-cell;
+    width: 50%;
+  }
+
+  span.ag-rounded {
+    padding: 4px;
+    font-size: 60px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+    &:hover {
+      border-color: red;
+      color: red;
+    }
+
+  }
+
+  div#worksteps {
+    .col-sm-4 {
+      text-align: center;
+    }
+  }
+
 }
 
 /*
