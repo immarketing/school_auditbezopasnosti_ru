@@ -48,8 +48,10 @@ body {
   .navbar {
     background-color: #087CCF;
     color: white;
+    //visibility: ;
 
     .navbar-brand {
+      visibility: hidden;
       .schl-logo-img {
         background-image: url("../images/logo_school_round.png");
         width: 87px;
@@ -85,21 +87,46 @@ body {
     padding: 4px;
     font-size: 60px;
     border-style: solid;
-    border-color: black;
+    border-color: #087CCF;
     border-radius: 60px;
     padding-left: 30px;
     padding-right: 30px;
+    font-weight: bold;
+    color: #087CCF;
+
     &:hover {
-      border-color: red;
-      color: red;
+      //border-color: red;
+      color: whitesmoke;
       cursor: pointer;
+      background-color: #087CCF;
     }
 
+  }
+
+  div#about {
+    .fa {
+      font-size: 3em;
+      float: left;
+      color: whitesmoke;
+      background-color: #087CCF;
+      border-style: solid;
+      border-width: 3px;
+      border-color: #ADD8E6;
+      margin: 4px;
+      padding: 10px;
+      border-radius: 10px;
+    }
   }
 
   div#worksteps {
     .col-sm-4 {
       text-align: center;
+    }
+  }
+
+  div#courses {
+    td {
+      width: 50%;
     }
   }
 
