@@ -44,6 +44,11 @@ body {
   color: @cvColor;
   font-family: 'Open Sans', sans-serif;
   //font-family: 'Open Sans Condensed', sans-serif;
+  background: linear-gradient(to top, #e6f3e9, #acdabb);
+
+  .ag-no-display {
+    display: none;
+  }
 
   .navbar {
     background-color: #087CCF;
@@ -84,15 +89,17 @@ body {
   }
 
   span.ag-rounded {
-    padding: 4px;
-    font-size: 60px;
+    padding: 0.35em;
+    font-size: 4em;
     border-style: solid;
     border-color: #087CCF;
-    border-radius: 60px;
-    padding-left: 30px;
-    padding-right: 30px;
+    border-radius: 1em;
+    //padding-left: 30px;
+    //padding-right: 30px;
     font-weight: bold;
     color: #087CCF;
+    width: 1.8em;
+    height: 1.8em;
 
     &:hover {
       //border-color: red;
@@ -104,9 +111,9 @@ body {
   }
 
   div#about {
-    .fa {
+    .ag-fa {
       font-size: 3em;
-      float: left;
+
       color: whitesmoke;
       background-color: #087CCF;
       border-style: solid;
@@ -115,6 +122,20 @@ body {
       margin: 4px;
       padding: 10px;
       border-radius: 10px;
+
+    }
+    .fa-fire-extinguisher {
+      float: left;
+    }
+
+    .fa-exclamation {
+      float: left;
+      background-color: red;
+
+    }
+
+    .fa-li {
+      color: #087CCF;
     }
   }
 
