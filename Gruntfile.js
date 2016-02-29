@@ -113,6 +113,18 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                     src: '<%= globalConfig.bower_path %>/bootstrap/dist/fonts/*',
                     dest: '<%= globalConfig.fonts %>/',
                     filter: 'isFile'
+                }, {
+                    expand: true,
+                    flatten: true,
+                    src: '<%= globalConfig.bower_path %>/font-awesome/css/*.<%= globalConfig.minified %>css',
+                    dest: '<%= globalConfig.styles %>/',
+                    filter: 'isFile'
+                }, {
+                    expand: true,
+                    flatten: true,
+                    src: '<%= globalConfig.bower_path %>/font-awesome/fonts/*',
+                    dest: '<%= globalConfig.fonts %>/',
+                    filter: 'isFile'
                 }]
             }
         } /* less : { development : { options : {

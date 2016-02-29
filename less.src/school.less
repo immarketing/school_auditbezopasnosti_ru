@@ -20,13 +20,13 @@
 // http://colorscheme.ru/#0K11Tj-tKw0w0
 
 @cvColor: #ffffff;
-@cvColor: rgba(0, 0, 0, 0.6);
+@cvColor: rgba(0, 0, 0, 0.99);
 
 @cvColor1: #edb059;
 @cvColorGreen: #81d742;
 
 @cvColorL : lighten(@cvColor, 30%);
-@cvColorLL : lighten(@cvColorL, 30%);
+@cvColorLL : lighten(lighten(@cvColor, 30%), 30%);
 @cvColorLLL : lighten(@cvColorLL, 30%);
 
 .logo {
@@ -44,14 +44,27 @@ body {
   color: @cvColor;
   font-family: 'Open Sans', sans-serif;
   //font-family: 'Open Sans Condensed', sans-serif;
+  background: linear-gradient(to top, #e6f3e9, #acdabb);
 
-  .navbar-brand {
-    .schl-logo-img {
-      background-image: url("../images/logo_school_round.png");
-      width: 87px;
-      height: 87px;
+  .ag-no-display {
+    display: none;
+  }
 
+  .navbar {
+    background-color: #087CCF;
+    color: white;
+    //visibility: ;
+
+    .navbar-brand {
+      visibility: hidden;
+      .schl-logo-img {
+        background-image: url("../images/logo_school_round.png");
+        width: 87px;
+        height: 87px;
+
+      }
     }
+
   }
 
   .cvtitle {
@@ -76,27 +89,65 @@ body {
   }
 
   span.ag-rounded {
-    padding: 4px;
-    font-size: 60px;
+    padding: 0.35em;
+    font-size: 4em;
     border-style: solid;
-    border-color: deepskyblue;
-    border-radius: 60px;
-    padding-left: 30px;
-    padding-right: 30px;
-    color: deepskyblue;
+    border-color: #087CCF;
+    border-radius: 1em;
+    //padding-left: 30px;
+    //padding-right: 30px;
     font-weight: bold;
+    color: #087CCF;
+    width: 1.8em;
+    height: 1.8em;
+
     &:hover {
-      border-color: deepskyblue;
+      //border-color: red;
       color: whitesmoke;
-      background-color: deepskyblue;
       cursor: pointer;
+      background-color: #087CCF;
     }
 
+  }
+
+  div#about {
+    .ag-fa {
+      font-size: 3em;
+
+      color: whitesmoke;
+      background-color: #087CCF;
+      border-style: solid;
+      border-width: 3px;
+      border-color: #ADD8E6;
+      margin: 4px;
+      padding: 10px;
+      border-radius: 10px;
+
+    }
+    .fa-fire-extinguisher {
+      float: left;
+    }
+
+    .fa-exclamation {
+      float: left;
+      background-color: red;
+
+    }
+
+    .fa-li {
+      color: #087CCF;
+    }
   }
 
   div#worksteps {
     .col-sm-4 {
       text-align: center;
+    }
+  }
+
+  div#courses {
+    td {
+      width: 50%;
     }
   }
 
