@@ -83,6 +83,12 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                     src: '<%= globalConfig.bower_path %>/bootstrap/dist/js/bootstrap.<%= globalConfig.minified %>js',
                     dest: '<%= globalConfig.scripts %>/',
                     filter: 'isFile'
+                },{
+                    expand: true,
+                    flatten: true,
+                    src: '<%= globalConfig.bower_path %>/jQuery-viewport-checker/dist/*.js',
+                    dest: '<%= globalConfig.scripts %>/',
+                    filter: 'isFile'
                 }, {
                     expand: true,
                     flatten: true,
