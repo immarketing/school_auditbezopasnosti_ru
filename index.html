@@ -61,8 +61,10 @@
             <h1 class="">О нас</h1>
         </div>
 
+        <img src="./images/federal_law.png" alt="">
         <p>
             <span class="fa fa-fire-extinguisher ag-fa fa-fw"></span>
+
 
             Обучение ПТМ (аббр. "Пожарно-Технический Минимум") является базовым обучением мерам пожарной безопасности
             (ПБ),
@@ -70,13 +72,14 @@
             взрывопожароопасными объектами. Целью такого обучения является получение уровня знаний, соответствующего
             особенностям конкретных производств и усвоение общих правил соблюдения ПБ.</p>
 
+
         <p>
 
             Обучение работников ПТМ является законодательно закрепленной обязанностью работодателя. Основанием являются
             Нормы ПБ "Обучение мерам пожарной безопасности работников организаций" утвержденные в Приказе МЧС РФ от 12
             декабря 2007 года № 645</p>
 
-
+        <img src="./images/udostoverenie.png" alt="">
 
         <p>
             <span class="fa fa-exclamation ag-fa fa-fw"></span>
@@ -177,7 +180,6 @@
         <div class="cvtitle">
             <h1 class="">Порядок работы</h1>
         </div>
-
 
 
         <div class="col-sm-4">
@@ -576,17 +578,17 @@
 
             function initialize() {
                 var mapProp = {
-                    center:myCenter,
-                    zoom:12,
-                    scrollwheel:false,
-                    draggable:false,
-                    mapTypeId:google.maps.MapTypeId.ROADMAP
+                    center: myCenter,
+                    zoom: 12,
+                    scrollwheel: false,
+                    draggable: false,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
 
-                var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
                 var marker = new google.maps.Marker({
-                    position:myCenter,
+                    position: myCenter,
                 });
 
                 marker.setMap(map);
