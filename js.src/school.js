@@ -12,11 +12,12 @@ $(document).ready(function () {
         //console.log("scroll(function(" + eo);
 
         if ( $(document).scrollTop() > $("#about").offset().top) {
-            $("a.navbar-brand").show(
-                
-                400);
+            $("a.navbar-brand").show(400);
+            //$("a.navbar-brand").addClass('animated slideInUp');
         } else {
             $("a.navbar-brand").hide(400);
+            //$("a.navbar-brand").addClass('animated slideOutUp');
+
         }
     });
 
@@ -41,8 +42,8 @@ $(document).ready(function () {
     });
 
     $('body>div.container').addClass("ag-hidden").viewportChecker({
-        classToAdd: 'ag-visible animated fadeIn',
-        offset: 100
+        classToAdd: 'ag-visible animated fadeIn-- flipInX-- slideInUp',
+        offset: 300
     });
 
     $(".navbar").on("activate.bs.scrollspy", function () {
