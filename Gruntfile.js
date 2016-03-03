@@ -89,6 +89,12 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                     src: '<%= globalConfig.bower_path %>/jQuery-viewport-checker/dist/*.js',
                     dest: '<%= globalConfig.scripts %>/',
                     filter: 'isFile'
+                },{
+                    expand: true,
+                    flatten: true,
+                    src: '<%= globalConfig.bower_path %>/animate.css/*.css',
+                    dest: '<%= globalConfig.styles %>/',
+                    filter: 'isFile'
                 }, {
                     expand: true,
                     flatten: true,
@@ -133,7 +139,7 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                     filter: 'isFile'
                 }]
             }
-        } /* less : { development : { options : {
+        }, /* less : { development : { options : {
          compress : false,
          yuicompress : false,
          optimization : 2
@@ -189,6 +195,31 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
          }
          }
          */
+        ftp_push: {
+            your_target: {
+                options: {
+                    //authKey: "serverA",
+                    username : "ftpschool",
+                    password: "Og0Ij47E54W3I57h",
+                    host: "school.auditbezopasnosti.ru",
+                    dest: "/",
+                    port: 21
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: '.',
+                        src: [
+                            "index.html",
+                            "css/**",
+                            "fonts/**",
+                            "images/**",
+                            "js/**"
+                        ]
+                    }
+                ]
+            }
+        }
     });
 
     // Load the plugin that provides the "uglify" task.
@@ -206,12 +237,14 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
+    grunt.loadNpmTasks('grunt-ftp-push');
+
     // Default task(s).
     // grunt.registerTask('default', [ 'uglify','less', 'watch' ]);
     // grunt.registerTask('default', [ 'uglify','less', 'bower_concat' ]);
     grunt.registerTask('default', ['clean', 'less', 'copy', 'uglify', 'responsive_images']);
     grunt.registerTask('imagetest', ['responsive_images']);
-    //grunt.registerTask('serverdeploy', ['default', 'ftp-deploy']);
+    grunt.registerTask('serverdeploy', ['default', 'ftp_push']);
 
     // 11
 
