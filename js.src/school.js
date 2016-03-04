@@ -13,10 +13,12 @@ $(document).ready(function () {
 
         if ( $(document).scrollTop() > $("#about").offset().top) {
             $("a.navbar-brand").show(400);
-            //$("a.navbar-brand").addClass('animated slideInUp');
+            //$("a.navbar-brand").removeClass("ag-no-display animated slideOutUp");
+            //$("a.navbar-brand").addClass('ag-display animated slideInUp');
         } else {
             $("a.navbar-brand").hide(400);
-            //$("a.navbar-brand").addClass('animated slideOutUp');
+            //$("a.navbar-brand").removeClass("animated slideInUp");
+            //$("a.navbar-brand").addClass('animated slideOutDown');
 
         }
     });
