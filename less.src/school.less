@@ -25,195 +25,200 @@
 @cvColor1: #edb059;
 @cvColorGreen: #81d742;
 
-@cvColorL : lighten(@cvColor, 30%);
-@cvColorLL : lighten(lighten(@cvColor, 30%), 30%);
-@cvColorLLL : lighten(@cvColorLL, 30%);
+@cvColorL: lighten(@cvColor, 30%);
+@cvColorLL: lighten(lighten(@cvColor, 30%), 30%);
+@cvColorLLL: lighten(@cvColorLL, 30%);
 
 .logo {
-  font-size-1234: 200px;
+    font-size-1234: 200px;
 }
 
 @media screen and (max-width: 768px) {
-  .col-sm-4 {
-    //text-align: center;
-    //margin: 25px 0;
-  }
+    .col-sm-4 {
+        //text-align: center;
+        //margin: 25px 0;
+    }
 }
 
 body {
-  color: @cvColor;
-  font-family: 'Open Sans', sans-serif;
-  //font-family: 'Open Sans Condensed', sans-serif;
-  //background: linear-gradient(to top, #e6f3e9, #acdabb);
-  background: white;
+    color: @cvColor;
+    font-family: 'Open Sans', sans-serif;
+    //font-family: 'Open Sans Condensed', sans-serif;
+    //background: linear-gradient(to top, #e6f3e9, #acdabb);
+    background: white;
 
-  .ag-no-display {
-    display: none;
-  }
-
-  .ag-display {
-    display: inherit;
-  }
-
-  .ag-hidden{
-    opacity:0;
-  }
-  .ag-visible{
-    opacity:1;
-  }
-
-  .animated {
-    animation-duration: 2s;
-  }
-
-  .jumbotron {
-    background: inherit;
-    padding-top: 52px;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-
-    h1 {
-      letter-spacing: 10px;
-      font-weight: 400;
-      font-family: 'Open Sans Condensed', sans-serif;
-      text-transform: uppercase;
-      margin-top: 10px;
-      text-shadow: 2px 2px lightgrey;
-    }
-  }
-
-  .ag-navbar-correct {
-    padding-top: 50px;
-    margin-bottom: -50px;
-  }
-
-  .navbar {
-    //background-color: #087CCF;
-    background-color: #ffffff;
-    color: white;
-    //visibility: ;
-
-    .navbar-brand {
-      //visibility: hidden;
-      //visibility: visible;
-      //display: none;
-      .schl-logo-img {
-        background-image: url("../images/logo_school_round.png");
-        background-size: 100%;
-        width: 40px;
-        height: 40px;
-        margin-top: -10px;
-
-      }
+    .ag-no-display {
+        display: none;
     }
 
-  }
-
-  .cvtitle {
-    //.cvTextSpaced;
-
-    h1 {
-      text-transform: uppercase;
-      //color: #564d93;
-      display: table-cell;
-      //font: 56px PFDinDisplayProExtraThin, sans-serif;
-      font-family: 'Open Sans Condensed', sans-serif;
-      padding: 0 40px;
-      white-space: nowrap;
-      letter-spacing: 5px;
-
-      //line-height: 1;
+    .ag-display {
+        display: inherit;
     }
 
-    margin-bottom: 10px;
-  }
-
-  .cvtitle:before, .cvtitle:after {
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAEklEQVR4XgXAgQgAAAAAoP2pjwACAAF0O1JHAAAAAElFTkSuQmCC") repeat-x scroll 0 50% rgba(255, 0, 0, 0);
-    content: "";
-    display: table-cell;
-    width: 50%;
-  }
-
-  span.ag-rounded {
-    padding: 0.35em;
-    font-size: 4em;
-    border-style: solid;
-    border-color: #087CCF;
-    border-radius: 1em;
-    //padding-left: 30px;
-    //padding-right: 30px;
-    font-weight: bold;
-    color: #087CCF;
-    width: 1.8em;
-    height: 1.8em;
-    margin-bottom: 10px;
-    margin-top: 10px;
-
-    &:hover {
-      //border-color: red;
-      color: whitesmoke;
-      cursor: pointer;
-      background-color: #087CCF;
+    .ag-hidden {
+        opacity: 0;
+    }
+    .ag-visible {
+        opacity: 1;
     }
 
-  }
-
-  div#about {
-    .ag-fa {
-      font-size: 3em;
-
-      color: whitesmoke;
-      background-color: #087CCF;
-      border-style: solid;
-      border-width: 3px;
-      border-color: #ADD8E6;
-      margin: 4px;
-      padding: 10px;
-      border-radius: 10px;
-      margin-right: 10px;
-
-    }
-    .fa-fire-extinguisher {
-      float: left;
+    .animated {
+        animation-duration: 2s;
     }
 
-    .fa-exclamation {
-      float: left;
-      background-color: red;
+    .jumbotron {
+        background: inherit;
+        padding-top: 52px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+
+        h1 {
+            letter-spacing: 10px;
+            font-weight: 400;
+            font-family: 'Open Sans Condensed', sans-serif;
+            text-transform: uppercase;
+            margin-top: 10px;
+            text-shadow: 2px 2px lightgrey;
+        }
+    }
+
+    .ag-navbar-correct {
+        padding-top: 50px;
+        margin-bottom: -50px;
+    }
+
+    .navbar {
+        //background-color: #087CCF;
+        background-color: #ffffff;
+        color: white;
+        //visibility: ;
+
+        .navbar-brand {
+            //visibility: hidden;
+            //visibility: visible;
+            //display: none;
+            .schl-logo-img {
+                background-image: url("../images/logo_school_round.png");
+                background-size: 100%;
+                width: 40px;
+                height: 40px;
+                margin-top: -10px;
+
+            }
+        }
+
+        div#myNavbar {
+            #agNavBarMakeOrder {
+                background-color: #fa0000;
+
+            }
+        }
+    }
+
+    .cvtitle {
+        //.cvTextSpaced;
+
+        h1 {
+            text-transform: uppercase;
+            //color: #564d93;
+            display: table-cell;
+            //font: 56px PFDinDisplayProExtraThin, sans-serif;
+            font-family: 'Open Sans Condensed', sans-serif;
+            padding: 0 40px;
+            white-space: nowrap;
+            letter-spacing: 5px;
+
+            //line-height: 1;
+        }
+
+        margin-bottom: 10px;
+    }
+
+    .cvtitle:before, .cvtitle:after {
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAEklEQVR4XgXAgQgAAAAAoP2pjwACAAF0O1JHAAAAAElFTkSuQmCC") repeat-x scroll 0 50% rgba(255, 0, 0, 0);
+        content: "";
+        display: table-cell;
+        width: 50%;
+    }
+
+    span.ag-rounded {
+        padding: 0.35em;
+        font-size: 4em;
+        border-style: solid;
+        border-color: #087CCF;
+        border-radius: 1em;
+        //padding-left: 30px;
+        //padding-right: 30px;
+        font-weight: bold;
+        color: #087CCF;
+        width: 1.8em;
+        height: 1.8em;
+        margin-bottom: 10px;
+        margin-top: 10px;
+
+        &:hover {
+            //border-color: red;
+            color: whitesmoke;
+            cursor: pointer;
+            background-color: #087CCF;
+        }
 
     }
 
-    .fa-li {
-      color: #087CCF;
-      //padding-left: (18em / 14);
-    }
-    .fa-ul {
-      //color: #087CCF;
-      padding-left: (18em / 14);
+    div#about {
+        .ag-fa {
+            font-size: 3em;
+
+            color: whitesmoke;
+            background-color: #087CCF;
+            border-style: solid;
+            border-width: 3px;
+            border-color: #ADD8E6;
+            margin: 4px;
+            padding: 10px;
+            border-radius: 10px;
+            margin-right: 10px;
+
+        }
+        .fa-fire-extinguisher {
+            float: left;
+        }
+
+        .fa-exclamation {
+            float: left;
+            background-color: red;
+        }
+
+        .fa-li {
+            color: #087CCF;
+            //padding-left: (18em / 14);
+        }
+        .fa-ul {
+            //color: #087CCF;
+            padding-left: (18em / 14);
+        }
+
+        img {
+            float: right;
+            width: 100px;
+        }
     }
 
-    img {
-      float: right;
-      width: 100px;
+    div#worksteps {
+        .col-sm-4 {
+            text-align: center;
+        }
     }
-  }
 
-  div#worksteps {
-    .col-sm-4 {
-      text-align: center;
+    div#courses {
+        td {
+            width: 50%;
+        }
     }
-  }
 
-  div#courses {
-    td {
-      width: 50%;
+    div#contacts {
+        margin-bottom: 50px;
     }
-  }
-
-  div#contacts {
-    margin-bottom: 50px;
-  }
 
 }
 
