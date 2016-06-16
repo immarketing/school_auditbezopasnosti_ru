@@ -11,7 +11,7 @@ $(document).ready(function () {
         //$( "span" ).css( "display", "inline" ).fadeOut( "slow" );
         //console.log("scroll(function(" + eo);
 
-        if ( $(document).scrollTop() > $("#about").offset().top) {
+        if ( $(document).scrollTop() > $("#about").offset().top-30) {
             $("a.navbar-brand").show(400);
             //$("a.navbar-brand").removeClass("ag-no-display animated slideOutUp");
             //$("a.navbar-brand").addClass('ag-display animated slideInUp');
@@ -45,7 +45,7 @@ $(document).ready(function () {
 
     $('body>div.container').addClass("ag-hidden").viewportChecker({
         classToAdd: 'ag-visible animated fadeIn-- flipInX-- slideInUp',
-        offset: 300
+        offset: 150
     });
 
     $(".navbar").on("activate.bs.scrollspy", function () {

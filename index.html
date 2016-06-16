@@ -22,8 +22,19 @@
     <link rel="stylesheet" type="text/css" href="./css/animate.css"/>
     <link href="./css/school.css" rel="stylesheet">
     <link href="./css/font-awesome.css" rel="stylesheet">
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-26089069-2', 'auto');
+        ga('send', 'pageview');
+    </script>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -45,7 +56,7 @@
                 <li><a href="#courses">КУРСЫ</a></li>
                 <li><a href="#worksteps">ПОРЯДОК РАБОТЫ</a></li>
                 <li><a href="#contacts">КОНТАКТЫ</a></li>
-                <li id="agNavBarMakeOrder"><a href="#">ЗАКАЗАТЬ</a></li>
+                <!-- <li id="agNavBarMakeOrder"><a href="#">ЗАКАЗАТЬ</a></li> -->
             </ul>
         </div>
     </div>
@@ -184,45 +195,54 @@
 
 
         <div class="col-sm-4">
-
-            <span class="fa fa-fw fa-check-square-o ag-rounded"></span>
+            <a href="#courses">
+                <span class="fa fa-fw fa-check-square-o ag-rounded"></span>
+            </a>
             <br>
 
             <p>Выберите необходимые курсы</p>
         </div>
         <div class="col-sm-4">
+            <a href="https://drive.google.com/file/d/0B9zBh-L1xTy6WjdkNUgxSW5lbnc/view?usp=sharing" target="_blank">
             <span class="fa fa-fw fa-file-text  ag-rounded"></span>
+            </a>
             <br>
 
-            <p>Заполните шаблон заявки</p>
+            <p>Скачайте и заполните шаблон заявки</p>
         </div>
         <div class="col-sm-4">
+            <a href="mailto:abkovrov@yandex.ru?subject=[ABK]Договор на обучение для подписания" target="_blank">
             <span class="fa fa-fw  fa-envelope-o  ag-rounded"></span>
+            </a>
             <br>
 
-            <p>Отправьте его нам</p>
+            <p>Вышлите нам скан подписанного договора</p>
         </div>
     </div>
     <div class="row">
 
         <div class="col-sm-4">
+            <a href="mailto:abkovrov@yandex.ru?subject=[ABK]Заявка на обучение" target="_blank">
 
             <span class="fa fa-fw fa-key ag-rounded"></span>
+            </a>
             <br>
-
-            <p>Получите ключи доступа к системе дистанционного образования</p>
+            <p>Заполните и вышлите нам скан заявки на обучение</p>
         </div>
         <div class="col-sm-4">
             <span class="fa fa-fw fa-book   ag-rounded"></span>
             <br>
 
-            <p>Ознакомьтесь с учебными материалами и успешно выполните тестовые задания</p>
+            <p>Пройдите обучение и успешно выполните тестовые задания!</p>
+
+            <p><mark>ВНИМАНИЕ! Скоро - обучение онлайн!</mark> </p>
+
         </div>
         <div class="col-sm-4">
             <span class="fa fa-fw  fa-briefcase  ag-rounded"></span>
             <br>
 
-            <p>Получите удостоверения в нашем офисе или закажите доставку</p>
+            <p>Есть вопросы? Нужна скидка? Оставьте телефон - мы перезвоним!</p>
         </div>
     </div>
 </div>
@@ -377,7 +397,7 @@
     </div>
 </div>
 
-<div class="container ag-navbar-correct" id="forma">
+<div class="container ag-navbar-correct ag-no-display" id="forma">
     <div class="row">
         <div class="cvtitle">
             <h1>Форма</h1>
