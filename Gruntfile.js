@@ -67,9 +67,9 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
 
         uglify: {
             options: {
-                mangle: true,
-                compress : true,
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %>\n'
+                mangle: false,
+                compress : false,
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
                 src: 'js.src/school.js',
