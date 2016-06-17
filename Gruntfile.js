@@ -5,6 +5,7 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
         fonts: 'fonts', /* папка для шрифтов */
         scripts: 'js', /* папка для готовых скриптов js */
         src: 'src', /* папка с исходными кодами js, less , etc. */
+        distr: 'distr.tmp', /* папка для формирования дистрибутива. */
         bower_path: 'bower_components' /* папка где хранятся библиотеки jquery, bootstrap, SyntaxHighlighter, etc. */
     };
     /* Project configuration.*/
@@ -12,6 +13,10 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
         globalConfig: globalConfig,
         pkg: grunt.file.readJSON('package.json'),
         clean: {
+            distr: ['<%= globalConfig.distr %>/*'],
+            distr_js: ['<%= globalConfig.distr %>/<%= globalConfig.scripts %>/*'],
+            distr_css: ['<%= globalConfig.distr %>/<%= globalConfig.styles %>/*'],
+            distr_fonts: ['<%= globalConfig.distr %>/<%= globalConfig.fonts %>/*'],
             js: ['<%= globalConfig.scripts %>/*'],
             css: ['<%= globalConfig.styles %>/*'],
             fonts: ['<%= globalConfig.fonts %>/*']
@@ -62,14 +67,60 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
 
         uglify: {
             options: {
+                mangle: true,
+                compress : true,
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %>\n'
             },
             build: {
                 src: 'js.src/school.js',
                 dest: 'js/school.min.js'
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= globalConfig.scripts %>',
+                    //src: ['*.js', '!*.min.js'],
+                    src: ['school.js', '!*.min.js'],
+                    dest: '<%= globalConfig.distr %>/<%= globalConfig.scripts %>'
+                }]
             }
         },
         copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    cwd: '<%= globalConfig.scripts %>/',
+                    src: '*',
+                    dest: '<%= globalConfig.distr %>/<%= globalConfig.scripts %>/',
+                    filter: 'isFile'
+                },
+                    {
+                        expand: true,
+                        flatten: true,
+                        cwd: '<%= globalConfig.styles %>/',
+                        src: '*',
+                        dest: '<%= globalConfig.distr %>/<%= globalConfig.styles %>/',
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        cwd: '<%= globalConfig.fonts %>/',
+                        src: '*',
+                        dest: '<%= globalConfig.distr %>/<%= globalConfig.fonts %>/',
+                        filter: 'isFile'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        cwd: '<%= globalConfig.images %>/',
+                        src: '*',
+                        dest: '<%= globalConfig.distr %>/<%= globalConfig.images %>/',
+                        filter: 'isFile'
+                    }
+                ]
+            },
             main: {
                 files: [{
                     expand: true,
@@ -83,13 +134,13 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                     src: '<%= globalConfig.bower_path %>/bootstrap/dist/js/bootstrap.<%= globalConfig.minified %>js',
                     dest: '<%= globalConfig.scripts %>/',
                     filter: 'isFile'
-                },{
+                }, {
                     expand: true,
                     flatten: true,
                     src: '<%= globalConfig.bower_path %>/jQuery-viewport-checker/dist/*.js',
                     dest: '<%= globalConfig.scripts %>/',
                     filter: 'isFile'
-                },{
+                }, {
                     expand: true,
                     flatten: true,
                     src: '<%= globalConfig.bower_path %>/animate.css/*.css',
@@ -195,11 +246,41 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
          }
          }
          */
+        cssmin: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= globalConfig.styles %>',
+                    src: ['*.css', '!*.min.css'],
+                    dest: '<%= globalConfig.distr %>/<%= globalConfig.styles %>'
+                }]
+            }
+        },
+        htmlmin: {                                     // Task
+            dist: {                                      // Target
+                options: {                                 // Target options
+                    removeComments: true,
+                    minifyJS: true,
+                    minifyCSS: true,
+                    minifyURLs: true,
+                    collapseWhitespace: true
+                },
+                files: {                                   // Dictionary of files
+                    '<%= globalConfig.distr %>/index.html': 'index.html' // 'destination': 'source'
+                }
+            },
+            dev: {                                       // Another target
+                files: {
+                    'dist/index.html': 'src/index.html',
+                    'dist/contact.html': 'src/contact.html'
+                }
+            }
+        },
         ftp_push: {
             your_target: {
                 options: {
                     //authKey: "serverA",
-                    username : "ftpschool",
+                    username: "ftpschool",
                     password: "Og0Ij47E54W3I57h",
                     host: "school.auditbezopasnosti.ru",
                     dest: "/",
@@ -208,7 +289,8 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                 files: [
                     {
                         expand: true,
-                        cwd: '.',
+                        //cwd: '.',
+                        cwd: '<%= globalConfig.distr %>/',
                         src: [
                             "index.html",
                             "css/**",
@@ -236,15 +318,17 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
     grunt.loadNpmTasks('grunt-responsive-images');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.loadNpmTasks('grunt-ftp-push');
 
     // Default task(s).
     // grunt.registerTask('default', [ 'uglify','less', 'watch' ]);
     // grunt.registerTask('default', [ 'uglify','less', 'bower_concat' ]);
-    grunt.registerTask('default', ['clean', 'less', 'copy', 'uglify', 'responsive_images']);
+    grunt.registerTask('default', ['clean', 'less', 'copy:main', 'uglify:build', 'responsive_images']);
     grunt.registerTask('imagetest', ['responsive_images']);
-    grunt.registerTask('serverdeploy', ['default', 'ftp_push']);
+    grunt.registerTask('prepareserverdeploy', ['default', 'copy:dist', 'htmlmin:dist', 'cssmin:dist', 'uglify:dist']);
+    grunt.registerTask('serverdeploy', ['default', 'prepareserverdeploy', 'ftp_push']);
 
     // 11
 
