@@ -9,6 +9,8 @@
     <meta name="author" content="Горбунов Алексей">
     <title>-= Школа безопасности. Обучение ПТМ =-</title>
 
+    <link rel="icon" type="image/png" href="/images/favicon-nrm.png" />
+
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.css" rel="stylesheet">
 
@@ -33,7 +35,7 @@
         ga('create', 'UA-26089069-2', 'auto');
         ga('send', 'pageview');
     </script>
-    <!-- RedConnect -->
+    <!-- RedConnect ->
     <script id="rhlpscrtg" type="text/javascript" charset="utf-8" async="async"
             src="https://web.redhelper.ru/service/main.js?c=algosoft"></script>
     <div style="display: none"><a class="rc-copyright"
@@ -129,18 +131,19 @@
 </div>
 
 
-<div class="container ag-navbar-correct" id="courses">
+<div class="container ag-navbar-correct ag-slideUp" id="courses">
     <div class="row">
         <div class="cvtitle">
             <h1 class="">Курсы</h1>
         </div>
 
-        <div class="table-responsive ">
-            <table class="table table-bordered table-responsive table-striped table-condensed text-center">
+        <div class="table-responsive">
+            <table class="table table-bordered table-responsive table-striped table-condensed text-center" id="coursesList">
                 <thead>
                 <tr>
-                    <th>Название курса/лекции/программы обучения</th>
-                    <th>Учебные часы</th>
+                    <th class="">Название курса/лекции/программы обучения</th>
+                    <th class="text-center text-nowrap text-uppercase">Учебные часы</th>
+                    <th class="text-center text-nowrap text-uppercase">Учебные часы</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -214,7 +217,7 @@
     </div>
 </div>
 
-<div class="container ag-navbar-correct" id="worksteps">
+<div class="container ag-navbar-correct ag-slideUp" id="worksteps">
     <div class="row">
         <div class="cvtitle">
             <h1 class="">Порядок работы</h1>
@@ -266,11 +269,75 @@
 
         </div>
         <div class="col-sm-4">
+            <a href="#callbackwidget">
             <span class="fa fa-fw  fa-briefcase  ag-rounded"></span>
+            </a>
             <br>
 
-            <p>Есть вопросы? Нужна скидка? Оставьте телефон - мы перезвоним!</p>
+            <p>Есть вопросы? Нужна скидка?</p>
+            <p><mark>Оставьте телефон - мы перезвоним!</mark> </p>
+
         </div>
+    </div>
+</div>
+
+<div class="container n-fluid bg-grey ag-navbar-correct ag-slideUp " id="contacts">
+
+    <div class="cvtitle">
+        <h1 class="">контакты</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h2>
+                <span class="glyphicon glyphicon-phone"></span>&nbsp;<strong>+7&nbsp;(49232)&nbsp;3-15-95</strong>
+            </h2>
+
+        </div>
+
+        <div class="col-sm-4">
+            <h2>
+                <span class="glyphicon glyphicon-envelope"></span>&nbsp;<a href="mailto:abkovrov@yandex.ru">abkovrov@yandex.ru</a>
+            </h2>
+        </div>
+
+        <div class="col-sm-4">
+            <h2>
+                SKYPE:&nbsp;<strong>tel79206249317</strong>
+            </h2>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <!-- Set height and width with CSS -->
+        <div id="googleMap" style="height:400px;width:100%;"></div>
+
+        <!-- Add Google Maps -->
+        <script src="http://maps.googleapis.com/maps/api/js"></script>
+        <script>
+            var myCenter = new google.maps.LatLng(56.354731, 41.311700);
+
+            function initialize() {
+                var mapProp = {
+                    center: myCenter,
+                    zoom: 12,
+                    scrollwheel: false,
+                    draggable: false,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+                var marker = new google.maps.Marker({
+                    position: myCenter,
+                });
+
+                marker.setMap(map);
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
     </div>
 </div>
 
@@ -641,65 +708,6 @@
 </div>
 -->
 
-<div class="container n-fluid bg-grey ag-navbar-correct " id="contacts">
-
-    <div class="cvtitle">
-        <h1 class="">контакты</h1>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <h2>
-                <span class="glyphicon glyphicon-phone"></span>&nbsp;<strong>+7&nbsp;(49232)&nbsp;3-15-95</strong>
-            </h2>
-
-        </div>
-
-        <div class="col-sm-4">
-            <h2>
-                <span class="glyphicon glyphicon-envelope"></span>&nbsp;<a href="mailto:abkovrov@yandex.ru">abkovrov@yandex.ru</a>
-            </h2>
-        </div>
-
-        <div class="col-sm-4">
-            <h2>
-                SKYPE:&nbsp;<strong>tel79206249317</strong>
-            </h2>
-        </div>
-
-
-    </div>
-
-    <div class="row">
-        <!-- Set height and width with CSS -->
-        <div id="googleMap" style="height:400px;width:100%;"></div>
-
-        <!-- Add Google Maps -->
-        <script src="http://maps.googleapis.com/maps/api/js"></script>
-        <script>
-            var myCenter = new google.maps.LatLng(56.354731, 41.311700);
-
-            function initialize() {
-                var mapProp = {
-                    center: myCenter,
-                    zoom: 12,
-                    scrollwheel: false,
-                    draggable: false,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-
-                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-
-                var marker = new google.maps.Marker({
-                    position: myCenter,
-                });
-
-                marker.setMap(map);
-            }
-
-            google.maps.event.addDomListener(window, 'load', initialize);
-        </script>
-    </div>
-</div>
 
 <script>
     var minified = ''; // min.
@@ -713,5 +721,10 @@
 <script src="./js/jquery.viewportchecker.min.js"></script>
 <script src="./js/ie10-viewport-bug-workaround.js"></script>
 <script src="./js/school.js"></script>
+
+<!-- callbackkiller -->
+<link rel="stylesheet" href="https://cdn.callbackkiller.com/widget/cbk.css">
+<script type="text/javascript" src="https://cdn.callbackkiller.com/widget/cbk.js?wcb_code=cc26a846cb68a57140ca2b1d86463ec7" charset="UTF-8" async></script>
+<!-- /callbackkiller -->
 </body>
 </html>

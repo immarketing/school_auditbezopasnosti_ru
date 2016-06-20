@@ -43,7 +43,7 @@ $(document).ready(function () {
         });
     });
 
-    $('body>div.container').addClass("ag-hidden").viewportChecker({
+    $('body>div.container.ag-slideUp').addClass("ag-hidden").viewportChecker({
         classToAdd: 'ag-visible animated fadeIn-- flipInX-- slideInUp',
         offset: 150
     });

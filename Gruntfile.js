@@ -24,8 +24,9 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
         less: {
             development: {
                 options: {
-                    compress: false,
-                    yuicompress: false,
+                    paths: ['assets/css', 'bower_components/bootstrap/less'],
+                    compress: true,
+                    yuicompress: true,
                     optimization: 2
                 },
                 files: {
@@ -79,8 +80,8 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                 files: [{
                     expand: true,
                     cwd: '<%= globalConfig.scripts %>',
-                    //src: ['*.js', '!*.min.js'],
-                    src: ['school.js', '!*.min.js'],
+                    src: ['*.js', '!*.min.js'],
+                    //src: ['school.js', '!*.min.js'],
                     dest: '<%= globalConfig.distr %>/<%= globalConfig.scripts %>'
                 }]
             }
