@@ -280,7 +280,31 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
             }
         },
         ftp_push: {
-            your_target: {
+            dist_sfts_ru: {
+                options: {
+                    //authKey: "serverA",
+                    username: "9784505964897345",
+                    password: "Iq28I39Li50lI17s",
+                    host: "sfts.ru",
+                    dest: "/",
+                    port: 21
+                },
+                files: [
+                    {
+                        expand: true,
+                        //cwd: '.',
+                        cwd: '<%= globalConfig.distr %>/',
+                        src: [
+                            "index.html",
+                            "css/**",
+                            "fonts/**",
+                            "images/**",
+                            "js/**"
+                        ]
+                    }
+                ]
+            },
+            dist_school_auditbezopasnosti_ru: {
                 options: {
                     //authKey: "serverA",
                     username: "ftpschool",
@@ -331,7 +355,7 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
     grunt.registerTask('default', ['clean', 'less', 'copy:main', 'uglify:build', 'responsive_images']);
     grunt.registerTask('imagetest', ['responsive_images']);
     grunt.registerTask('prepareserverdeploy', ['default', 'copy:dist', 'htmlmin:dist', 'cssmin:dist', 'uglify:dist']);
-    grunt.registerTask('serverdeploy', ['default', 'prepareserverdeploy', 'ftp_push']);
+    grunt.registerTask('serverdeploy', ['default', 'prepareserverdeploy', 'ftp_push:dist_school_auditbezopasnosti_ru', 'ftp_push:dist_sfts_ru']);
 
     // 11
 
