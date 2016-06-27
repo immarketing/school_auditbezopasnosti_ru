@@ -355,7 +355,8 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
     grunt.registerTask('default', ['clean', 'less', 'copy:main', 'uglify:build', 'responsive_images']);
     grunt.registerTask('imagetest', ['responsive_images']);
     grunt.registerTask('prepareserverdeploy', ['default', 'copy:dist', 'htmlmin:dist', 'cssmin:dist', 'uglify:dist']);
-    grunt.registerTask('serverdeploy', ['default', 'prepareserverdeploy', 'ftp_push:dist_school_auditbezopasnosti_ru', 'ftp_push:dist_sfts_ru']);
+    grunt.registerTask('serverdeploy.alfa', ['default', 'prepareserverdeploy', 'ftp_push:dist_school_auditbezopasnosti_ru']);
+    grunt.registerTask('serverdeploy', ['serverdeploy.alfa', 'ftp_push:dist_sfts_ru']);
 
     // 11
 
