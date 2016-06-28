@@ -287,6 +287,7 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                 options: {
                     // Target-specific options go here.
                     force: true,
+                    annotated: true,
                     tag: globalConfig.releaseNo,
                     message: 'distr ' + globalConfig.releaseDate
                 }
@@ -295,6 +296,7 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                 options: {
                     // Target-specific options go here.
                     force: true,
+                    annotated: true,
                     tag: globalConfig.releaseNo,
                     message: 'alfa ' + globalConfig.releaseDate
                 }
