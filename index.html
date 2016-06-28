@@ -13,13 +13,16 @@
     <title>НОУ ДОПК "Школа безопасности". Качественное и недорогое обучение ПТМ для руководителей и работников
         организаций</title>
 
-    <link rel="icon" type="image/png" href="/images/favicon-nrm.png" />
+    <link rel="icon" type="image/png" href="/images/favicon-nrm.png"/>
 
     <!-- Bootstrap core CSS ->
     <link href="./css/bootstrap.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS включен теперь в мой ЦСС - компилируется из бутстрапа -->
     <link href="./css/school.css" rel="stylesheet">
+
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="./css/magnific-popup.css">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="./css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -33,10 +36,17 @@
 
 
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-26089069-2', 'auto');
         ga('require', 'linkid');
@@ -129,9 +139,24 @@
             <h1 class="">О нас</h1>
         </div>
 
+        <p><span class="fa fa-fire-extinguisher ag-fa fa-fw"></span>
+            Департаментом по образованию администрации Владимирской области негосударственному образовательному
+            учреждению дополнительного образования и повышения квалификации «Школа безопасности» (НОУ ДОПК "Школа
+            безопасности"),
+            <a href="images/sfts_lic_3.jpg" class="agImagePopup">выдана лицензия №3534 от 06.05.2014</a>
+            на осуществление образовательной деятельности по направлению "Пожарная безопасность".
+        </p>
+
+        <p>
+            Обучение в НОУ ДОПК "Школа безопасности" проводят опытные преподаватели с многолетним стажем. Они несут
+            полную ответственность за качество подготовки слушателей, используют наиболее эффективные методы и средства
+            обучения, разрабатывают методические материалы для обеспечения учебного процесса.
+            По окончанию обучения выдается удостоверение установленного образца, действительного на всей территории
+            России.
+        </p>
+
         <img src="./images/federal_law.png" alt="">
         <p>
-            <span class="fa fa-fire-extinguisher ag-fa fa-fw"></span>
 
 
             Обучение ПТМ (аббр. "Пожарно-Технический Минимум") является базовым обучением мерам пожарной безопасности
@@ -167,27 +192,28 @@
             <li><i class="fa-li fa fa-check-square"></i>Возможность организации процесса обучения на базе
                 непосредственно Вашего предприятия;
             </li>
-            <li><i class="fa-li fa fa-check-square"></i>По окончании обучения - квалификационные удостоверения
-                установленного образца;
-            </li>
-            <li><i class="fa-li fa fa-check-square"></i>Очень низкие цены в городе!</li>
+            <!--
+                <li><i class="fa-li fa fa-check-square"></i>По окончании обучения - квалификационные удостоверения
+                    установленного образца;
+                </li> -->
+            <li><i class="fa-li fa fa-check-square"></i>Очень низкие цены!</li>
         </ul>
 
     </div>
 
-    <div class="row">
+    <div class="row agLicenseImagesRow">
         <div class="col-xs-3 col-md-3">
-            <a href="images/sfts_lic_3.jpg" class="thumbnail">
+            <a href="images/sfts_lic_3.jpg" class="agImagePopup">
                 <img src="images/sfts_lic_1-nrm.jpg" alt="Лицензия на осуществление образовательной деятельности">
             </a>
         </div>
         <div class="col-xs-3 col-md-3">
-            <a href="images/sfts_lic_3.jpg" class="thumbnail">
+            <a href="images/sfts_lic_3.jpg" class="agImagePopup">
                 <img src="images/sfts_lic_2-nrm.jpg" alt="Лицензия на осуществление образовательной деятельности">
             </a>
         </div>
         <div class="col-xs-3 col-md-3">
-            <a href="images/sfts_lic_3.jpg" class="thumbnail">
+            <a href="images/sfts_lic_3.jpg" class="agImagePopup">
                 <img src="images/sfts_lic_3-nrm.jpg" alt="Лицензия на осуществление образовательной деятельности">
             </a>
         </div>
@@ -202,7 +228,8 @@
         </div>
 
         <div class="table-responsive">
-            <table class="table table-bordered table-responsive table-striped table-condensed text-center" id="coursesList">
+            <table class="table table-bordered table-responsive table-striped table-condensed text-center"
+                   id="coursesList">
                 <thead>
                 <tr>
                     <th>Название курса/лекции/программы обучения</th>
@@ -442,7 +469,7 @@
         </div>
         <div class="col-sm-4">
             <a href="https://drive.google.com/file/d/0B9zBh-L1xTy6WjdkNUgxSW5lbnc/view?usp=sharing" target="_blank">
-            <span class="fa fa-fw fa-file-text  ag-rounded"></span>
+                <span class="fa fa-fw fa-file-text  ag-rounded"></span>
             </a>
             <br>
 
@@ -450,7 +477,7 @@
         </div>
         <div class="col-sm-4">
             <a href="mailto:abkovrov@yandex.ru?subject=[ABK]Договор на обучение для подписания" target="_blank">
-            <span class="fa fa-fw  fa-envelope-o  ag-rounded"></span>
+                <span class="fa fa-fw  fa-envelope-o  ag-rounded"></span>
             </a>
             <br>
 
@@ -462,7 +489,7 @@
         <div class="col-sm-4">
             <a href="mailto:abkovrov@yandex.ru?subject=[ABK]Заявка на обучение" target="_blank">
 
-            <span class="fa fa-fw fa-key ag-rounded"></span>
+                <span class="fa fa-fw fa-key ag-rounded"></span>
             </a>
             <br>
             <p>Заполните и вышлите нам скан заявки на обучение</p>
@@ -473,7 +500,9 @@
 
             <p>Пройдите обучение и успешно выполните тестовые задания!</p>
 
-            <p><mark>ВНИМАНИЕ! Скоро - обучение онлайн!</mark> </p>
+            <p>
+                <mark>ВНИМАНИЕ! Скоро - обучение онлайн!</mark>
+            </p>
 
         </div>
         <div class="col-sm-4">
@@ -483,7 +512,9 @@
             <br>
 
             <p>Есть вопросы? Нужна скидка?</p>
-            <p><mark>Оставьте телефон - мы перезвоним!</mark> </p>
+            <p>
+                <mark>Оставьте телефон - мы перезвоним!</mark>
+            </p>
 
         </div>
     </div>
@@ -511,7 +542,6 @@
         <div class="col-sm-4">
             <h2>
                 SKYPE:&nbsp;<strong>SFTS.RU</strong>
-
             </h2>
         </div>
 
@@ -940,6 +970,9 @@
 <script src="./js/jquery.viewportchecker.min.js"></script>
 <script src="./js/ie10-viewport-bug-workaround.js"></script>
 <script src="./js/school.js"></script>
+
+<!-- Magnific Popup core JS file -->
+<script src="./js/jquery.magnific-popup.js"></script>
 
 <!-- callbackkiller ->
 <link rel="stylesheet" href="https://cdn.callbackkiller.com/widget/cbk.css">

@@ -172,6 +172,18 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                 }, {
                     expand: true,
                     flatten: true,
+                    src: '<%= globalConfig.bower_path %>/magnific-popup/dist/*.css',
+                    dest: '<%= globalConfig.styles %>/',
+                    filter: 'isFile'
+                }, {
+                    expand: true,
+                    flatten: true,
+                    src: '<%= globalConfig.bower_path %>/magnific-popup/dist/*.js',
+                    dest: '<%= globalConfig.scripts %>/',
+                    filter: 'isFile'
+                }, {
+                    expand: true,
+                    flatten: true,
                     src: '<%= globalConfig.bower_path %>/bootstrap/dist/css/bootstrap.<%= globalConfig.minified %>css',
                     dest: '<%= globalConfig.styles %>/',
                     filter: 'isFile'
@@ -307,7 +319,8 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
             dist: {
                 files: [
                     {
-                        file: "<%= globalConfig.distr %>/" + '<%= globalConfig.releaseNo  %>' + '.ver',
+                        //file: "<%= globalConfig.distr %>/" + '<%= globalConfig.releaseNo  %>' + '.ver',
+                        file: "<%= globalConfig.distr %>/" + '.ver',
                         method: function (fs, fd, done) {
                             fs.writeSync(fd, globalConfig.releaseNo + '|' + globalConfig.releaseDate);
                             done();
@@ -398,7 +411,7 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
     grunt.registerTask('imagetest', ['responsive_images']);
     grunt.registerTask('prepareserverdeploy', ['default', 'copy:dist', 'htmlmin:dist', 'cssmin:dist', 'uglify:dist', 'file-creator:dist']);
     grunt.registerTask('serverdeploy.alfa', ['default', 'prepareserverdeploy', 'gittag:alfa', 'ftp_push:dist_school_auditbezopasnosti_ru']);
-    grunt.registerTask('serverdeploy', ['serverdeploy.alfa', 'ftp_push:dist_sfts_ru']);
+    grunt.registerTask('serverdeploy', ['serverdeploy.alfa', 'gittag:dist', 'ftp_push:dist_sfts_ru']);
 
     // 11
 

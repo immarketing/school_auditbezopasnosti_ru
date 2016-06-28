@@ -3,6 +3,11 @@
  */
 
 $(document).ready(function () {
+    $('.agImagePopup').magnificPopup({
+        type: 'image'
+        // other options
+    });
+
     $('body').each(function () {
         var $spy = $(this).scrollspy('refresh')
     });
