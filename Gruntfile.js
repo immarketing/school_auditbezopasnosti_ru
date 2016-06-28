@@ -1,5 +1,7 @@
 module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
     var globalConfig = {
+        releaseNo: '00.00.' + (Date.now()).toString(16).toLocaleUpperCase(),
+        releaseDate: '' + (new Date()).toString().toLocaleUpperCase(),
         images: 'images', /* папка для картинок сайта */
         styles: 'css', /* папка для готовый файлов css стилей */
         fonts: 'fonts', /* папка для шрифтов */
@@ -72,7 +74,7 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
             options: {
                 mangle: false,
                 compress : false,
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+                banner: '/*! <%= globalConfig.releaseNo%> <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             build: {
                 src: 'js.src/school.js',
@@ -279,6 +281,40 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                 }
             }
         },
+
+        gittag: {
+            dist: {
+                options: {
+                    // Target-specific options go here.
+                    force: true,
+                    tag: globalConfig.releaseNo,
+                    message: 'distr ' + globalConfig.releaseDate
+                }
+            },
+            alfa: {
+                options: {
+                    // Target-specific options go here.
+                    force: true,
+                    tag: globalConfig.releaseNo,
+                    message: 'alfa ' + globalConfig.releaseDate
+                }
+            }
+        },
+
+        "file-creator": {
+            dist: {
+                files: [
+                    {
+                        file: "<%= globalConfig.distr %>/" + '<%= globalConfig.releaseNo  %>' + '.ver',
+                        method: function (fs, fd, done) {
+                            fs.writeSync(fd, globalConfig.releaseNo + '|' + globalConfig.releaseDate);
+                            done();
+                        }
+                    }
+                ]
+            }
+        },
+
         ftp_push: {
             dist_sfts_ru: {
                 options: {
@@ -296,6 +332,7 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                         cwd: '<%= globalConfig.distr %>/',
                         src: [
                             "index.html",
+                            '*.ver',
                             "css/**",
                             "fonts/**",
                             "images/**",
@@ -320,6 +357,7 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
                         cwd: '<%= globalConfig.distr %>/',
                         src: [
                             "index.html",
+                            '*.ver',
                             "css/**",
                             "fonts/**",
                             "images/**",
@@ -348,14 +386,16 @@ module.exports = function (grunt) { /*require('jit-grunt')(grunt);*/
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.loadNpmTasks('grunt-ftp-push');
+    grunt.loadNpmTasks('grunt-file-creator');
+    grunt.loadNpmTasks('grunt-git');
 
     // Default task(s).
     // grunt.registerTask('default', [ 'uglify','less', 'watch' ]);
     // grunt.registerTask('default', [ 'uglify','less', 'bower_concat' ]);
     grunt.registerTask('default', ['clean', 'less', 'copy:main', 'uglify:build', 'responsive_images']);
     grunt.registerTask('imagetest', ['responsive_images']);
-    grunt.registerTask('prepareserverdeploy', ['default', 'copy:dist', 'htmlmin:dist', 'cssmin:dist', 'uglify:dist']);
-    grunt.registerTask('serverdeploy.alfa', ['default', 'prepareserverdeploy', 'ftp_push:dist_school_auditbezopasnosti_ru']);
+    grunt.registerTask('prepareserverdeploy', ['default', 'copy:dist', 'htmlmin:dist', 'cssmin:dist', 'uglify:dist', 'file-creator:dist']);
+    grunt.registerTask('serverdeploy.alfa', ['default', 'prepareserverdeploy', 'gittag:alfa', 'ftp_push:dist_school_auditbezopasnosti_ru']);
     grunt.registerTask('serverdeploy', ['serverdeploy.alfa', 'ftp_push:dist_sfts_ru']);
 
     // 11
